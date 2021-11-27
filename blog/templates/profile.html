@@ -1,0 +1,78 @@
+{% extends 'base.html'%}
+{% block title %}
+<title> Profile </title>
+<style>
+    .profile {
+        justify-content: center;
+        margin-left: 100px;
+        width: auto;
+    }
+
+    .user-name {
+        line-height: 25px;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: Roboto, Arial, Helvetica, sans-serif;
+        margin-left: 100px;
+    }
+
+    .product-section {
+        margin-top: 100px;
+        margin-left: 100px;
+    }
+
+    th {
+        border: solid 1px black;
+        margin-top: 5px;
+    }
+
+    table >.two {
+        margin-left: 100px;
+        border: solid 1px black;
+
+    }
+
+
+</style>
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h1>Edit your Profile and Products</h1>
+
+    <div class="profile d-flex flex-column justify-content-center" style="margin-top:100px; ">
+        <div class=""><img src="{{userinfo.pic.url}}" alt="No Image Uploaded"
+                style="width:300px;height:300px;margin-left:100px"></div>
+                <br><br>
+        <div class="user-name  row"> 
+            
+                    <div class="col-sm-1"><b>Name:</b> </div>
+                    <div class="col-lg-2">{{userinfo.user.username}}</div>
+                    <div clas="col-lg-1"><a href="{% url 'profile_edit' %}"><button> Edit Profile</button></a></div>
+                
+            </table>
+             
+         </div> 
+    </div>
+<br><br>
+    <div class="product-section">
+
+
+        <table class="two">
+            <tr class="heading">
+                <th colspan="2"> Your List of Products</th>
+            </tr>
+            {%for i in product %}
+            <tr>
+                <th class="product-name"> {{i.name}} </th>
+                <th class="product-btn"><a href="{% url 'product_edit' i.id %}"><button
+                            class="btn btn-primary">Edit</button></a></th>
+            </tr>
+            {%endfor%}
+        </table>
+    </div>
+
+
+
+</div>
+{% endblock content %}

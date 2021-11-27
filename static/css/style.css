@@ -1,0 +1,86 @@
+.parent-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #fff;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
+  margin-top: 50px;
+  margin-left: 80px;
+  margin-right: 80px;
+  justify-content: center;
+  /* padding: 40px; calc((100% - (255px * 3)) / 2); */
+}
+
+.flex-item {
+  height: 300px;
+  width: 400px;
+  flex: 0 0 215px;
+  margin: 20px 20px 20px;
+  border: 1px solid rgba(0, 47, 52, 0.2);
+  border-radius: 8px;
+}
+
+.fleximg {
+  margin: 20px 20px 20px;
+  width: 200px;
+  height: 150px;
+  justify-content: center;
+}
+
+.price {
+  font-weight: bolder;
+}
+
+#logo {
+  width: 40px !important;
+  height: 40px !important;
+  background-color: #fff !important;
+  color: #fff !important;
+
+  
+}
+.flexlink {
+  text-decoration: none;
+  color: black;
+}
+.flexlink:hover {
+  text-decoration: none;
+  color: black;
+}
+
+/* footer css  */
+
+/* navbar css*/
+.navbar  {
+  height: 60px;
+}
+.navbar > .navlink > a {
+ color: #fff;
+}
+.description {
+  text-decoration-color: #e6e6e6;
+}
+
+.footercontent {
+  margin: 0px 0px 0px;
+  padding: 0px 0px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+
+.nav-link >.awatar {
+border-radius: 50%;
+height: 50px;
+width: 50px;
+
+}
+
+
+/* display page */
+
+

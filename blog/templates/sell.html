@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Display2</title>
+<style>
+
+    
+
+</style>
+{% endblock title %}
+
+
+{% block content %}
+<div class="container-fluid">
+<br><br><br>
+    
+        <div class="seller d-flex d-block flex-column justify-content-center" id="seller">
+            <table>
+            <tr>
+                <th>Seller Name</th>
+            <th><div class="seller-name ">{{salesman.user}}</div></th>
+        </tr>
+        <tr>
+            <th>Seller Pic</th>
+            <th style="padding-left: 10px;"><div class="seller-img  ">
+                <img src="{{salesman.pic.url}}" alt="">
+            </div></th>
+            
+        </tr>
+            <tr>
+                <th>Seller bio</th>
+                <th><div class="seller-bio  ">
+                    {{salesman.bio}}
+                </div></th>
+            </tr>
+                <tr>
+                    <th>Seller Address</th>
+                <th><div class="seller-address ">
+                    {{salesman.location}}
+                </div></th>
+            </tr>
+        </table> 
+           
+        </div>
+
+    
+    {% endblock content %}

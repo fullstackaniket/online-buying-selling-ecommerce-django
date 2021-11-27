@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!--Css links-->
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+  <title>Index</title>
+  <style>
+    .awatar {
+      border-radius: 50%;
+      height: 40px;
+      width: 40px;
+      justify-content: center;
+    }
+  </style>
+
+</head>
+<!-- head ends-->
+
+<!-- body section starts -->
+
+<body>
+  <!--navbar starts -->
+  <nav class="navbar navbar-expand-lg navbar-light ">
+    <a class="navbar-brand" href="{% url 'index' %}">
+      <img id="logo" src="{% static 'images/SRB.svg' %}" width="30" height="30" class="d-inline-block align-top"
+        alt="" />
+    </a>
+
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item text-white">
+          <a class="nav-link" href="{% url 'index' %}">Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'category' %}">Create Category</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'product' %}"><button class="btn btn-dark">Sell On SRB</button></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}"> <button class="btn btn-primary">Login</button> </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}"><button class="btn btn-primary">Logout</button></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'signup' %}"><button class="btn btn-success">Signup</button></a>
+        </li>
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+        
+          <a class="nav-link" href="{% url 'profile' %}"><img class="awatar" src="{{user.pic.url}}"
+              alt=""></a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'profile' %}">{{request.user.username}}</a>
+        </li>
+        {% endif %}
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" name="s" aria-label="Search">
+      <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </div>
+  </nav>
+  <!--navbar ends-->
+  {% block content %}
+  {% endblock content %}
+
+
+
+
+  <!-- footer starts here-->
+  
+  <!-- footer starts here-->
+  <footer>
+    <section class="footercontent">
+
+      <div class="card col-lg-3">
+
+        <div class="card-body">
+          <h5 class="card-title">About Us</h5>
+          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      <div class="card col-lg-3">
+
+        <div class="card-body">
+          <h5 class="card-title">Contact Us</h5>
+          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      <div class="card col-lg-3">
+        <div class="card-body">
+          <h5 class="card-title">Follow us on</h5>
+          <p class="card-text"> This card has even longer content than the first to show that equal height action.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+
+    </section>
+  </footer>
+
+  <!--footer ends here -->
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

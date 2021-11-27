@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Index </title>{% endblock title %}
+{% block content %}
+  <section>
+   
+    <div class="parent-flex">
+      {% for i in productinfo %}
+      <div class="flex-item">
+        <a class="flexlink" href="{% url 'display' i.id %}">
+          <div class="img-flex">
+            <img class="fleximg" src="{{i.p_img.url}}" alt="" />
+
+            <div class="col">
+              <span class="price "> &#x20B9; {{i.price}}</span><br>
+              <span class="Name ">{{i.name |truncatechars:20}}</span><br>
+            </div>
+            <div class="description col">
+              <span>{{i.description|truncatechars:20}}</span><br> </span>
+              <span class="location">{{i.p_city}}, {{i.p_state}}</span>
+            </div>
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+
+
+    </div>
+  </section>
+
+
+  <!-- pagination -->
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+    
+      <li class="page-item disabld"><a class="page-link" href="?pg=1" tabindex="-1">First</a></li>
+      {%if productinfo.has_previous%}
+      <li class="page-item"><a class="page-link" href="?pg={{productinfo.previous_page_number}}">{{productinfo.previous_page_number}}</a></li>
+      {% endif%}
+      <li class="page-item"><a class="page-link" href="?pg={{productinfo.number}}">{{productinfo.number}}</a></li>
+      {% if productinfo.has_next %}
+      <li class="page-item"><a class="page-link" href="?pg={{productinfo.next_page_number}}">{{productinfo.next_page_number}}</a></li>
+      {% endif %}
+      <li class="page-item">
+        <a class="page-link" href="?pg={{productinfo.paginator.num_pages}}">Last</a>
+      </li>
+    </ul>
+  </nav>
+{% endblock content %}
+
+
+  
